@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 166761365}
   - component: {fileID: 166761368}
   - component: {fileID: 166761367}
+  - component: {fileID: 166761369}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -207,8 +208,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.3
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -241,6 +242,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.54, y: 6}
   m_EdgeRadius: 0
+--- !u!114 &166761369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166761364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8001c0d5ebe0d294485ec1741ca5b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotspeed: 2
+  speed: 2.1
+  direction: {x: 0, y: 0, z: 0}
+--- !u!1 &329227833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329227834}
+  m_Layer: 0
+  m_Name: Asteroid Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329227834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329227833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13944031, y: -0.6659376, z: 0.08650273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f49d4b79339d549812d75afcb17bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroid: {fileID: 326924431669761251, guid: 6fa6211e1cd231f49ac50c6569f11857, type: 3}
+  container: {fileID: 329227833}
 --- !u!4 &609092763
 Transform:
   m_ObjectHideFlags: 0

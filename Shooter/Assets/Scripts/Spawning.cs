@@ -11,6 +11,7 @@ public class Spawning : MonoBehaviour
     private int randomgen;
     private int randomgen1;
 
+    private int speed;
 
     private void SpawnObject()
     {
@@ -22,14 +23,14 @@ public class Spawning : MonoBehaviour
 
             if (randomgen1 == 3)
             {
-                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(-8.40f, Random.Range(4.30f, -4.30f)), Quaternion.identity);
+                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(-10.40f, Random.Range(4.30f, -4.30f)), Quaternion.identity);
 
                 asteroid_instance.transform.SetParent(container.transform);
             }
 
             if (randomgen1 == 4)
             {
-                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(8.40f, Random.Range(4.30f, -4.30f)), Quaternion.identity);
+                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(10.40f, Random.Range(4.30f, -4.30f)), Quaternion.identity);
 
                 asteroid_instance.transform.SetParent(container.transform);
             }
@@ -43,14 +44,14 @@ public class Spawning : MonoBehaviour
 
             if (randomgen1 == 3)
             {
-                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(Random.Range(8.40f, -8.40f), -4.3f), Quaternion.identity);
+                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(Random.Range(8.40f, -8.40f), -6.3f), Quaternion.identity);
 
                 asteroid_instance.transform.SetParent(container.transform);
             }
 
             if (randomgen1 == 4)
             {
-                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(Random.Range(8.40f, -8.40f), 4.3f), Quaternion.identity);
+                GameObject asteroid_instance = Instantiate(asteroid, new Vector3(Random.Range(8.40f, -8.40f), 6.3f), Quaternion.identity);
 
                 asteroid_instance.transform.SetParent(container.transform);
             }
@@ -61,7 +62,7 @@ public class Spawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObject", 2, 2);
+        InvokeRepeating("SpawnObject", 2, 0.5f);
     }
 
     // Update is called once per frame

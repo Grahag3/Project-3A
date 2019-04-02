@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Spawning : MonoBehaviour
 {
@@ -110,6 +111,11 @@ public class Spawning : MonoBehaviour
     {
         time -= 1;
         time_ui.text = "Time: " + time.ToString();
+
+        if (time == 0)
+        {
+            SceneManager.LoadScene("Ending");
+        }
     }
 }
    

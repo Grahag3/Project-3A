@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -83,6 +84,11 @@ public class Player : MonoBehaviour
 
         lives -= 1;
         lives_ui.text = "Lives: " + lives.ToString();
+
+        if (lives == 0)
+        {
+            SceneManager.LoadScene("Ending");
+        }
 
         GameObject[] asteroids = GameObject.FindGameObjectsWithTag ("Asteroid");
 

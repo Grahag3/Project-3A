@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawning : MonoBehaviour
 {
@@ -12,6 +13,17 @@ public class Spawning : MonoBehaviour
     private int randomgen1;
 
     private int speed;
+
+    private static int time = 30;
+    public Text time_ui;
+
+    public GameObject shot;
+    public Transform shot_spawn;
+    public float fire_rate;
+    private float next_shot;
+
+   // private GameObject score_ref = GameObject.Find("Score");
+
 
     private void SpawnObject()
     {
@@ -63,12 +75,41 @@ public class Spawning : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnObject", 2, 0.5f);
+
+        time_ui.text = "Time: " + time.ToString();
+
+        InvokeRepeating("Count", 1, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space) && Time.time > next_shot)
+        {
+            if (shot_spawn != null){
 
+                next_shot = Time.time + fire_rate;
+
+                GameObject shot_instance = Instantiate(shot, shot_spawn.position, shot_spawn.rotation);
+                shot_instance.GetComponent<Shot>().score_ui = GameObject.FindWithTag("Score").GetComponent<Text>();
+            }
+            
+            else if (GameObject.Find("Player(Clone)") == true)
+            {
+                shot_spawn = GameObject.Find("Player(Clone)").transform.GetChild (1).GetComponent<Transform>();
+            }
+
+            else
+            {
+                shot_spawn = GameObject.Find("Player(Clone)(Clone)").transform.GetChild(1).GetComponent<Transform>();
+            }
+        }
+    }
+
+    void Count()
+    {
+        time -= 1;
+        time_ui.text = "Time: " + time.ToString();
     }
 }
    

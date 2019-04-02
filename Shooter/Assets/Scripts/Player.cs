@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    public GameObject player;
     public float rotspeed;
     public float speed;
     public Vector3 direction;
@@ -15,12 +18,18 @@ public class Player : MonoBehaviour
     private float max_width = 8.4f;
 
     private float rotation;
+
+    public Text lives_ui;
+
+    public static int lives = 3;
+
+    private Vector3 origin = new Vector3(0.0f, 0.0f, 0.0f);
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        lives_ui.text = "Lives: " + lives.ToString();
     }
 
     // Update is called once per frame
@@ -63,4 +72,23 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //transform.position = origin;
+        Instantiate(player, origin, Quaternion.identity);
+        Destroy(this.gameObject);
+        Destroy(collision.gameObject);
+
+
+
+        lives -= 1;
+        lives_ui.text = "Lives: " + lives.ToString();
+
+        GameObject[] asteroids = GameObject.FindGameObjectsWithTag ("Asteroid");
+
+        foreach (GameObject asteroid in asteroids)
+        {
+            GameObject.Destroy(asteroid);
+        }
+    }
 }

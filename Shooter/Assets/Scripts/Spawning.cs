@@ -23,8 +23,10 @@ public class Spawning : MonoBehaviour
     public float fire_rate;
     private float next_shot;
 
-   // private GameObject score_ref = GameObject.Find("Score");
 
+    // private GameObject score_ref = GameObject.Find("Score");
+
+  
 
     private void SpawnObject()
     {
@@ -93,16 +95,22 @@ public class Spawning : MonoBehaviour
 
                 GameObject shot_instance = Instantiate(shot, shot_spawn.position, shot_spawn.rotation);
                 shot_instance.GetComponent<Shot>().score_ui = GameObject.FindWithTag("Score").GetComponent<Text>();
+
+                Sounds.play_sound("Laser_Shoot36");
             }
             
             else if (GameObject.Find("Player(Clone)") == true)
             {
                 shot_spawn = GameObject.Find("Player(Clone)").transform.GetChild (1).GetComponent<Transform>();
+
+                Sounds.play_sound("Laser_Shoot36");
             }
 
             else
             {
                 shot_spawn = GameObject.Find("Player(Clone)(Clone)").transform.GetChild(1).GetComponent<Transform>();
+
+                Sounds.play_sound("Laser_Shoot36");
             }
         }
     }

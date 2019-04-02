@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boundary : MonoBehaviour
+public class Startup : MonoBehaviour
 {
+    private AudioSource music;
+
+    private void Awake()
+    {
+        music = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
+        music.Play();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +22,5 @@ public class Boundary : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(collision.gameObject);
     }
 }

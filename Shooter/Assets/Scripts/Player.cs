@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
         Destroy(this.gameObject);
         Destroy(collision.gameObject);
 
+        
 
 
         lives -= 1;
@@ -96,5 +97,6 @@ public class Player : MonoBehaviour
         {
             GameObject.Destroy(asteroid);
         }
+        Sounds.play_sound("Explosion41");
     }
 }

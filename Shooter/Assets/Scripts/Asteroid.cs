@@ -26,10 +26,23 @@ public class Asteroid : MonoBehaviour
 
         transform.Translate(angle * Time.deltaTime * speed);
 
+
+
         
     }
+    /*
+    public void Explode()
+    {
+        var explosion = GetComponent<ParticleSystem>();
+        explosion.Play();
+        Destroy(gameObject, explosion.duration);
+    }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Explode();
+    }*/
 
         
 }

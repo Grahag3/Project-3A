@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
+    private AudioSource music;
     // Start is called before the first frame update
     void Start()
     {
+        music = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSource>();
         
     }
 
@@ -30,6 +32,8 @@ public class Scenes : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Intro");
+        music.Stop();
+        music.Play();
     }
 
     public void Scores()

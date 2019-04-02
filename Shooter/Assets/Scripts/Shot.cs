@@ -8,6 +8,8 @@ public class Shot : MonoBehaviour
     public static int score = 0;
     public Text score_ui;
 
+
+
     public float shot_speed;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class Shot : MonoBehaviour
     {
         if (collision.gameObject.tag == "Asteroid")
         {
+       
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
 

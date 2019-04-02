@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
         if (lives == 0)
         {
             SceneManager.LoadScene("Ending");
+            lives = 3;
+            Spawning.time = 30;
         }
 
         GameObject[] asteroids = GameObject.FindGameObjectsWithTag ("Asteroid");

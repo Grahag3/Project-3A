@@ -15,7 +15,7 @@ public class Spawning : MonoBehaviour
 
     private int speed;
 
-    private static int time = 30;
+    public static int time = 30;
     public Text time_ui;
 
     public GameObject shot;
@@ -123,6 +123,8 @@ public class Spawning : MonoBehaviour
         if (time == 0)
         {
             SceneManager.LoadScene("Ending");
+            time = 30;
+            Player.lives = 3;
         }
     }
 }

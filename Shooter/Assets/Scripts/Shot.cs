@@ -31,6 +31,8 @@ public class Shot : MonoBehaviour
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
 
+            Sounds.play_sound("Explosion41");
+
             score += 10;
             score_ui.text = "Score: " + score.ToString();
         }

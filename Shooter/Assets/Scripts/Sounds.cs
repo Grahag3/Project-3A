@@ -9,12 +9,15 @@ public class Sounds : MonoBehaviour
     public static AudioClip explosion;
     public static AudioClip hit;
 
-    public static float sfxvol = 20;
-    public static float musicvol = 20;
+    public AudioSource music;
+
+    public static float sfxvol;
+    public static float musicvol;
 
     private void Awake()
     {
-      
+        sfxvol = PlayerPrefs.GetFloat("SFX Volume", 20);
+        musicvol = PlayerPrefs.GetFloat("Music Volume", 20);
 
     }
     private void Start()
@@ -22,6 +25,8 @@ public class Sounds : MonoBehaviour
         laser = Resources.Load<AudioClip>("Laser_Shoot36");
         explosion = Resources.Load<AudioClip>("Explosion41");
         hit = Resources.Load<AudioClip>("Pickup_Coin");
+
+        music.volume = musicvol;
 
         audio = GetComponent<AudioSource>();
     }

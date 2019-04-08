@@ -374,6 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294593658}
   - component: {fileID: 294593659}
+  - component: {fileID: 294593660}
   m_Layer: 5
   m_Name: SFX
   m_TagString: Untagged
@@ -450,8 +451,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SFXVolume
+      - m_Target: {fileID: 294593660}
+        m_MethodName: sfxVol
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -463,6 +464,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &294593660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c635f529ed5d37442b294aa2b103be86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx_slider: {fileID: 294593659}
+  music_slider: {fileID: 1745381735}
 --- !u!1 &393492075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,8 +1346,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: MusicVolume
+      - m_Target: {fileID: 294593660}
+        m_MethodName: musicVol
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

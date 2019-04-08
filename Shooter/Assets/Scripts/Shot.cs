@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score_ui.text = "Score: " + score.ToString();
+        score_ui.text = "Score: " + PlayerPrefs.GetInt("current score"); //score.ToString();
     }
 
     // Update is called once per frame
@@ -34,7 +34,9 @@ public class Shot : MonoBehaviour
             Sounds.play_sound("Explosion41");
 
             score += 10;
+            PlayerPrefs.SetInt("current score", score);
             score_ui.text = "Score: " + score.ToString();
+
         }
        
     }

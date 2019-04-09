@@ -118,6 +118,7 @@ public class Spawning : MonoBehaviour
     void Count()
     {
         time -= 1;
+        PlayerPrefs.SetInt("Current Time", time);
         time_ui.text = "Time: " + time.ToString();
 
         if (time == 0)

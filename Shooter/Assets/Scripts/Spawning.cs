@@ -23,6 +23,10 @@ public class Spawning : MonoBehaviour
     public float fire_rate;
     private float next_shot;
 
+    public float scatter_fire_rate;
+
+    public GameObject scatter_shot;
+
 
     // private GameObject score_ref = GameObject.Find("Score");
 
@@ -102,6 +106,33 @@ public class Spawning : MonoBehaviour
             else if (GameObject.Find("Player(Clone)") == true)
             {
                 shot_spawn = GameObject.Find("Player(Clone)").transform.GetChild (1).GetComponent<Transform>();
+
+                Sounds.play_sound("Laser_Shoot36");
+            }
+
+            else
+            {
+                shot_spawn = GameObject.Find("Player(Clone)(Clone)").transform.GetChild(1).GetComponent<Transform>();
+
+                Sounds.play_sound("Laser_Shoot36");
+            }
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && Time.time > next_shot)
+        {
+            if (shot_spawn != null)
+            {
+                next_shot = Time.time + scatter_fire_rate;
+
+                GameObject scatter_instance = Instantiate(scatter_shot, shot_spawn.position, shot_spawn.rotation);
+                scatter_instance.GetComponent<ScatterShot>().score_ui = GameObject.FindWithTag("Score").GetComponent<Text>();
+
+                Sounds.play_sound("Laser_Shoot36");
+            }
+
+            else if (GameObject.Find("Player(Clone)") == true)
+            {
+                shot_spawn = GameObject.Find("Player(Clone)").transform.GetChild(1).GetComponent<Transform>();
 
                 Sounds.play_sound("Laser_Shoot36");
             }

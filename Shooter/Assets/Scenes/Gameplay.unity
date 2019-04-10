@@ -479,6 +479,9 @@ MonoBehaviour:
   shot: {fileID: 8138163792130967614, guid: f07dc5bc8a609db4591a17a173f3e9a0, type: 3}
   shot_spawn: {fileID: 737070027100802013}
   fire_rate: 1
+  scatter_fire_rate: 3
+  scatter_shot: {fileID: 3504028800300577599, guid: 8e835b30ba82f49489854a5c0c463cca,
+    type: 3}
 --- !u!4 &609092763
 Transform:
   m_ObjectHideFlags: 0
